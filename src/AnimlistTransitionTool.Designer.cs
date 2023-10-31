@@ -131,7 +131,7 @@
             // 
             this.LaunchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LaunchButton.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.LaunchButton.BackgroundImage = global::Animlist_Transition_Tool.Properties.Resources.av_werewolf;
+            //this.LaunchButton.BackgroundImage = global::Animlist_Transition_Tool.Properties.Resources.av_werewolf;
             this.LaunchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LaunchButton.Location = new System.Drawing.Point(1831, 940);

@@ -146,6 +146,8 @@ public partial class AnimlistTransitionTool : Form
     {
         AnimDefList = new BindingList<AnimDef>();
 
+        string folder = filePath.Split("\\")[^2];
+
         using (StreamReader sr = new StreamReader(filePath))
         {
             string raw = sr.ReadToEnd();
@@ -160,7 +162,7 @@ public partial class AnimlistTransitionTool : Form
                 string type = args[0];
                 List<string> options = args[1].Substring(1).Split(',').ToList();
                 string eventname = args[2];
-                string file = "Animations\\" + modName + "\\" + args[3].Replace("\n", string.Empty).Replace("\r", string.Empty).Replace("\r\n", string.Empty);
+                string file = "Animations\\" + folder + "\\" + args[3].Replace("\n", string.Empty).Replace("\r", string.Empty).Replace("\r\n", string.Empty);
                 string sex;
                 if (options.Contains("f"))
                 {
@@ -329,10 +331,6 @@ public partial class AnimlistTransitionTool : Form
             Def.ModifierRoot.Params.Generator = Def.Clip.GetTag();
 
             Def.BindingSet.Params.Tag = Def.BindingSet.GetTag();
-            Def.BindingSet.Params.cropStartVar = cropStartVar;
-            Def.BindingSet.Params.cropEndVar = cropEndVar;
-            Def.BindingSet.Params.startTimeVar = startTimeVar;
-            Def.BindingSet.Params.playbackSpeedVar = playbackSpeedVar;
 
             Def.State.Params.Tag = Def.State.GetTag();
             Def.State.Params.variableBindingSet = null;
@@ -397,10 +395,6 @@ public partial class AnimlistTransitionTool : Form
             Def.Clip.Params.name = modName + "_AnimClip" + (clipcount).ToString();
             Def.Clip.Params.animName = Def.File;
             Def.Clip.Params.triggers = null;
-            Def.Clip.Params.cropStartAnimationLocalTime = "0.000000";
-            Def.Clip.Params.cropEndAnimationLocalTime = "0.000000";
-            Def.Clip.Params.startTime = "0.000000";
-            Def.Clip.Params.playbackSpeed = "1.000000";
             Def.Clip.Params.mode = Def.PlayMode;
             Def.Clip.Params.flags = 0;
             id += 6;
@@ -568,6 +562,7 @@ public partial class AnimlistTransitionTool : Form
             }
             if (String.IsNullOrWhiteSpace(ModAuthorInput.Text) || String.IsNullOrWhiteSpace(ModNameInput.Text) || (String.IsNullOrWhiteSpace(ModPrefixInput.Text)) || (String.IsNullOrWhiteSpace(ModLinkInput.Text)))
             {
+                LaunchButton.Enabled = true;
                 MessageBox.Show("All mod fields must be filled.");
                 return;
             }

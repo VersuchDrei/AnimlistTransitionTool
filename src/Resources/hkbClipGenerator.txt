@@ -4,13 +4,13 @@
 			<hkparam name="name">{2}</hkparam>
 			<hkparam name="animationName">{3}</hkparam>
 			<hkparam name="triggers">{4}</hkparam>
-			<hkparam name="cropStartAmountLocalTime">{5}</hkparam>
-			<hkparam name="cropEndAmountLocalTime">{6}</hkparam>
-			<hkparam name="startTime">{7}</hkparam>
-			<hkparam name="playbackSpeed">{8}</hkparam>
+			<hkparam name="cropStartAmountLocalTime">0.000000</hkparam>
+			<hkparam name="cropEndAmountLocalTime">0.000000</hkparam>
+			<hkparam name="startTime">0.000000</hkparam>
+			<hkparam name="playbackSpeed">1.000000</hkparam>
 			<hkparam name="enforcedDuration">0.000000</hkparam>
 			<hkparam name="userControlledTimeFraction">0.000000</hkparam>
 			<hkparam name="animationBindingIndex">-1</hkparam>
-			<hkparam name="mode">{9}</hkparam>
-			<hkparam name="flags">{10}</hkparam>
+			<hkparam name="mode">{5}</hkparam>
+			<hkparam name="flags">{6}</hkparam>
 		</hkobject>
