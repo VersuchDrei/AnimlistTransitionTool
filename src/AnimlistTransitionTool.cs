@@ -43,7 +43,7 @@ public partial class AnimlistTransitionTool : Form
     bool ExportHiddenPatch = true;
     public hkbObject RootState;
     public hkbObject StateMachine;
-    
+
     public AnimlistTransitionTool()
     {
         InitializeComponent();
@@ -57,7 +57,7 @@ public partial class AnimlistTransitionTool : Form
         .Single(str => str.EndsWith(name));
         using (Stream stream = assembly.GetManifestResourceStream(resourcePath))
         using (StreamReader reader = new StreamReader(stream))
-            
+
         {
             return reader.ReadToEnd();
         }
@@ -79,10 +79,17 @@ public partial class AnimlistTransitionTool : Form
             FBD.ShowNewFolderButton = true;
             if (FBD.ShowDialog() == DialogResult.OK)
             {
-                outputPath = FBD.SelectedPath + "\\";
+                SetOutputPathInternal(FBD.SelectedPath + "\\");
             }
         }
     }
+
+    private void SetOutputPathInternal(string Path)
+    {
+        outputPath = Path;
+        this.OutputPathDisplay.Text = outputPath;
+    }
+
     public void PrepOutput()
     {
         rootPath = outputPath + "\\Nemesis_Engine\\mod\\" + modPrefix;
@@ -112,6 +119,10 @@ public partial class AnimlistTransitionTool : Form
                 {
                     filePath = OFD.FileName;
                     ParseAnimlistData();
+                    if (filePath.Contains("meshes"))
+                    {
+                        SetOutputPathInternal(filePath.Substring(0, filePath.IndexOf("meshes")));
+                    }
                 }
                 else
                 {
@@ -167,19 +178,22 @@ public partial class AnimlistTransitionTool : Form
                 if (options.Contains("f"))
                 {
                     sex = "f";
-                } else if (options.Contains("m"))
+                }
+                else if (options.Contains("m"))
                 {
                     sex = "m";
-                } else
+                }
+                else
                 {
                     sex = "b";
                 }
-                
+
                 string mode = "MODE_LOOPING";
                 if (options.Contains("a"))
                 {
                     mode = "MODE_SINGLE_PLAY";
-                } else if (options.Contains("p"))
+                }
+                else if (options.Contains("p"))
                 {
                     mode = "MODE_PING_PONG";
                 }
@@ -200,7 +214,7 @@ public partial class AnimlistTransitionTool : Form
     }
     public void ExportAnimlistToPatch()
     {
-        
+
         CultureInfo Defculture = CultureInfo.CurrentCulture;
         CultureInfo.CurrentCulture = new CultureInfo("en-US");
 
@@ -210,10 +224,10 @@ public partial class AnimlistTransitionTool : Form
         playbackSpeedVar = modPrefix.ToUpper() + "_AnimationSpeed";
         exitEvent = "OST_ExitAnim";
         //exitEvent = modPrefix.ToUpper() + "_ExitAnim";
-        
+
         FileProgressBar.Visible = true;
         FileProgressBar.Minimum = 0;
-        FileProgressBar.Maximum = AnimDefList.Count * 2+5;
+        FileProgressBar.Maximum = AnimDefList.Count * 2 + 5;
         FileProgressBar.Value = 1;
         FileProgressBar.Step = 1;
         FileProgressBar.PerformStep();
@@ -250,8 +264,8 @@ public partial class AnimlistTransitionTool : Form
 @"				<hkobject>
 					<hkparam name=""flags"">0</hkparam>
                 </hkobject>
-";   
-        
+";
+
 
         RootState = new hkbObject(modPrefix, 0, s_hkbStateMachineStateInfo);
         StateMachine = new hkbObject(modPrefix, 1, s_hkbStateMachine);
@@ -274,12 +288,12 @@ public partial class AnimlistTransitionTool : Form
         hkbObject _m0029 = new hkbObject(modPrefix, s_m0029);
         hkbObject _2378 = new hkbObject(modPrefix, s_2378);
         hkbObject _2517 = new hkbObject(modPrefix, s_2517);
-        
+
 
         _0340.Params.Prefix = modPrefix;
         _0340.Params.Insert = RootState.GetTag();
         ExportPatch(_0340, masterPath, "#0340");
-        
+
 
         _2517.Params.Modifier = DefaultExpressionModifier.GetTag();
         ExportPatch(_2517, masterPath, "#2517");
@@ -305,28 +319,28 @@ public partial class AnimlistTransitionTool : Form
         VarNames.Add(String.Format(s_hkcString, cropEndVar));
         VarNames.Add(String.Format(s_hkcString, startTimeVar));
         int clipcount = -1;
-        
+
         int id = 4;
         foreach (AnimDef Def in AnimDefList)
         {
             clipcount++;
-            Def.BindingSet = new hkbObject(modPrefix, id+3, s_hkbVariableBindingSet);
+            Def.BindingSet = new hkbObject(modPrefix, id + 3, s_hkbVariableBindingSet);
             Def.State = new hkbObject(modPrefix, id, s_hkbStateMachineStateInfo);
-            Def.Clip = new hkbObject(modPrefix, id+2, s_hkbClipGenerator);
+            Def.Clip = new hkbObject(modPrefix, id + 2, s_hkbClipGenerator);
             Def.ModifierRoot = new hkbObject(modPrefix, id + 1, s_hkbModifierGenerator);
-            Def.Modifier = new hkbObject(modPrefix, id+4, s_BSIsActiveModifier);
+            Def.Modifier = new hkbObject(modPrefix, id + 4, s_BSIsActiveModifier);
             Def.ModifierBindingSet = new hkbObject(modPrefix, id + 5, s_hkbActiveVariableBindingSet);
-            
-            
+
+
             Def.ModifierBindingSet.Params.Prefix = Def.ModifierBindingSet.GetTag();
 
             Def.Modifier.Params.Prefix = Def.Modifier.GetTag();
             Def.Modifier.Params.BindingSet = Def.ModifierBindingSet.GetTag();
             Def.Modifier.Params.Name = modName + "_BSIsActiveModifier" + Def.Modifier.ID;
-            
-            
+
+
             Def.ModifierRoot.Params.Prefix = Def.ModifierRoot.GetTag();
-            Def.ModifierRoot.Params.Name = modName + "_Modifier"+Def.Modifier.ID;
+            Def.ModifierRoot.Params.Name = modName + "_Modifier" + Def.Modifier.ID;
             Def.ModifierRoot.Params.Modifier = Def.Modifier.GetTag();
             Def.ModifierRoot.Params.Generator = Def.Clip.GetTag();
 
@@ -339,7 +353,7 @@ public partial class AnimlistTransitionTool : Form
             Def.State.Params.transitions = null;
             //Def.State.Params.generator = Def.Clip.GetTag();
             Def.State.Params.generator = Def.ModifierRoot.GetTag();
-            Def.State.Params.name = modName + "_Anim"+ (clipcount).ToString();
+            Def.State.Params.name = modName + "_Anim" + (clipcount).ToString();
             Def.State.Params.stateID = clipcount;
             hkbObject EventProperty;
             if (Def.AnimObjects.Count > 0)
@@ -349,7 +363,7 @@ public partial class AnimlistTransitionTool : Form
                 int p = 0;
                 foreach (string obj in Def.AnimObjects)
                 {
-                    
+
                     hkbObject Payload = new hkbObject(modPrefix, id + 6, s_hkbStringEventPayload);
                     Payload.Params.Tag = Payload.GetTag();
                     Payload.Params.Name = obj;
@@ -373,7 +387,7 @@ public partial class AnimlistTransitionTool : Form
                 ExitProperties.Add(EventProperty.GetPatch());
                 hkbObject EnterEventPropertyArray = new hkbObject(modPrefix, id + 6, s_hkbStateMachineEventPropertyArray);
                 hkbObject ExitEventPropertyArray = new hkbObject(modPrefix, id + 7, s_hkbStateMachineEventPropertyArray);
-                id+=2;
+                id += 2;
                 EnterEventPropertyArray.Params.Tag = EnterEventPropertyArray.GetTag();
                 ExitEventPropertyArray.Params.Tag = ExitEventPropertyArray.GetTag();
 
@@ -400,7 +414,7 @@ public partial class AnimlistTransitionTool : Form
             id += 6;
             ExportPatch(Def.State, masterPath);
             ExportPatch(Def.ModifierBindingSet, masterPath);
-            ExportPatch(Def.ModifierRoot,masterPath);
+            ExportPatch(Def.ModifierRoot, masterPath);
             ExportPatch(Def.Modifier, masterPath);
             ExportPatch(Def.Clip, masterPath);
             ExportPatch(Def.BindingSet, masterPath);
@@ -417,14 +431,14 @@ public partial class AnimlistTransitionTool : Form
         StateMachine.Params.name = modName + "_Root";
         StateMachine.Params.numStates = States.Count;
         StateMachine.Params.states = "				" + String.Join(" ", States);
-        
-        
+
+
 
         List<string> RootTransitionInfos = new List<string>();
         hkbObject RootTransitionInfoArray = new hkbObject(modPrefix, id, s_hkbTransitionInfoArray);
-        hkbObject ExitTransitionInfoArray = new hkbObject(modPrefix, id+1, s_hkbTransitionInfoArray);
-        id+=2;
-        
+        hkbObject ExitTransitionInfoArray = new hkbObject(modPrefix, id + 1, s_hkbTransitionInfoArray);
+        id += 2;
+
         hkbObject ExitTransitionInfo = new hkbObject(modPrefix, -1, s_hkTransitionInfo);
         hkbObject ExitTransitionEffect = new hkbObject(modPrefix, id, s_hkbBlendingTransitionEffect);
         ExitTransitionEffect.Params.Tag = ExitTransitionEffect.GetTag();
@@ -447,7 +461,7 @@ public partial class AnimlistTransitionTool : Form
         ExportPatch(ExitTransitionEffect, masterPath);
         ExportPatch(ExitTransitionInfoArray, masterPath);
         FileProgressBar.PerformStep();
-        foreach(AnimDef Def in AnimDefList)
+        foreach (AnimDef Def in AnimDefList)
         {
             Def.TransitionInfo = new hkbObject(modPrefix, -1, s_hkTransitionInfo);
             Def.TransitionEffect = new hkbObject(modPrefix, id, s_hkbBlendingTransitionEffect);
@@ -502,7 +516,7 @@ public partial class AnimlistTransitionTool : Form
             Debug.WriteLine(s);
             switch (s)
             {
-                
+
                 case ("f"):
                     fArr.Add(FileNames[i]);
                     _m0029.Params.AnimCount -= 1;
@@ -519,7 +533,7 @@ public partial class AnimlistTransitionTool : Form
         }
         _f0029.Params.Anims = String.Join("\n", fArr);
         _m0029.Params.Anims = String.Join("\n", mArr);
-        
+
         ExportPatch(_f0029, deffemalePath, "#0029");
         ExportPatch(_m0029, defmalePath, "#0029");
         ExportPatch(_0106, masterPath, "#0106");
@@ -527,14 +541,14 @@ public partial class AnimlistTransitionTool : Form
         ExportPatch(_0108, masterPath, "#0108");
         //ExportPatch(_2378, masterPath, "#2378"); temp
 
-        
+
         StateMachine.Params.transitions = RootTransitionInfoArray.GetTag();
         RootState.Params.transitions = ExitTransitionInfoArray.GetTag();
         ExportPatch(RootState, masterPath);
         ExportPatch(StateMachine, masterPath);
         WritePatchMetadata();
         FileProgressBar.PerformStep();
-        
+
         CultureInfo.CurrentCulture = Defculture;
         LaunchButton.Enabled = true;
     }
@@ -549,7 +563,7 @@ public partial class AnimlistTransitionTool : Form
         if (Enabled)
         {
             LaunchButton.Enabled = false;
-            
+
             if (String.IsNullOrWhiteSpace(outputPath))
             {
                 LaunchButton.Enabled = true;
@@ -573,7 +587,7 @@ public partial class AnimlistTransitionTool : Form
 
             ExportAnimlistToPatch();
         }
-       
+
     }
 
     private void pathToolStripMenuItem_Click(object sender, EventArgs e)
@@ -668,7 +682,8 @@ public class hkbObject
         if (ID != -1)
         {
             return String.Format(Root, Prefix, ID);
-        } else
+        }
+        else
         {
             return "null";
         }
@@ -681,7 +696,8 @@ public class hkbObject
             if (kvp.Value != null)
             {
                 Values.Add(kvp.Value.ToString());
-            } else
+            }
+            else
             {
                 Values.Add("null");
             }
@@ -698,7 +714,7 @@ public class hkbObject
         {
             return "null";
         }
-    } 
-}   
+    }
+}
 
 

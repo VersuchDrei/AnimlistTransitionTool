@@ -29,259 +29,279 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnimlistTransitionTool));
-            this.FileViewBox = new System.Windows.Forms.ListBox();
-            this.MenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.animlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fNISToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LaunchButton = new System.Windows.Forms.Button();
-            this.ModPrefixInput = new System.Windows.Forms.RichTextBox();
-            this.ModNameInput = new System.Windows.Forms.RichTextBox();
-            this.ModAuthorInput = new System.Windows.Forms.RichTextBox();
-            this.ModLinkInput = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.FileProgressBar = new System.Windows.Forms.ProgressBar();
-            this.MenuStrip.SuspendLayout();
-            this.SuspendLayout();
+            FileViewBox = new ListBox();
+            MenuStrip = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            loadToolStripMenuItem = new ToolStripMenuItem();
+            animlistToolStripMenuItem = new ToolStripMenuItem();
+            fNISToolStripMenuItem = new ToolStripMenuItem();
+            outputToolStripMenuItem = new ToolStripMenuItem();
+            pathToolStripMenuItem = new ToolStripMenuItem();
+            LaunchButton = new Button();
+            ModPrefixInput = new RichTextBox();
+            ModNameInput = new RichTextBox();
+            ModAuthorInput = new RichTextBox();
+            ModLinkInput = new RichTextBox();
+            label1 = new Label();
+            label7 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            FileProgressBar = new ProgressBar();
+            label2 = new Label();
+            OutputPathDisplay = new RichTextBox();
+            MenuStrip.SuspendLayout();
+            SuspendLayout();
             // 
             // FileViewBox
             // 
-            this.FileViewBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.FileViewBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.FileViewBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FileViewBox.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FileViewBox.ForeColor = System.Drawing.SystemColors.Control;
-            this.FileViewBox.FormattingEnabled = true;
-            this.FileViewBox.ItemHeight = 19;
-            this.FileViewBox.Location = new System.Drawing.Point(12, 38);
-            this.FileViewBox.Name = "FileViewBox";
-            this.FileViewBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.FileViewBox.Size = new System.Drawing.Size(1018, 988);
-            this.FileViewBox.TabIndex = 1;
+            FileViewBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            FileViewBox.BackColor = Color.FromArgb(30, 30, 30);
+            FileViewBox.BorderStyle = BorderStyle.None;
+            FileViewBox.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FileViewBox.ForeColor = SystemColors.Control;
+            FileViewBox.FormattingEnabled = true;
+            FileViewBox.ItemHeight = 19;
+            FileViewBox.Location = new Point(12, 38);
+            FileViewBox.Name = "FileViewBox";
+            FileViewBox.SelectionMode = SelectionMode.MultiExtended;
+            FileViewBox.Size = new Size(1018, 988);
+            FileViewBox.TabIndex = 1;
             // 
             // MenuStrip
             // 
-            this.MenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.MenuStrip.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.MenuStrip.Size = new System.Drawing.Size(1904, 27);
-            this.MenuStrip.TabIndex = 2;
-            this.MenuStrip.Text = "MenuStrip";
+            MenuStrip.BackColor = Color.FromArgb(30, 30, 30);
+            MenuStrip.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            MenuStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            MenuStrip.Location = new Point(0, 0);
+            MenuStrip.Name = "MenuStrip";
+            MenuStrip.RenderMode = ToolStripRenderMode.System;
+            MenuStrip.Size = new Size(1904, 27);
+            MenuStrip.TabIndex = 2;
+            MenuStrip.Text = "MenuStrip";
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.outputToolStripMenuItem});
-            this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 23);
-            this.fileToolStripMenuItem.Text = "File";
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { loadToolStripMenuItem, outputToolStripMenuItem });
+            fileToolStripMenuItem.ForeColor = SystemColors.Control;
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(45, 23);
+            fileToolStripMenuItem.Text = "File";
             // 
             // loadToolStripMenuItem
             // 
-            this.loadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.animlistToolStripMenuItem});
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.loadToolStripMenuItem.Text = "Load";
+            loadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { animlistToolStripMenuItem });
+            loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            loadToolStripMenuItem.Size = new Size(127, 24);
+            loadToolStripMenuItem.Text = "Load";
             // 
             // animlistToolStripMenuItem
             // 
-            this.animlistToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fNISToolStripMenuItem});
-            this.animlistToolStripMenuItem.Name = "animlistToolStripMenuItem";
-            this.animlistToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
-            this.animlistToolStripMenuItem.Text = "Animlist";
+            animlistToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fNISToolStripMenuItem });
+            animlistToolStripMenuItem.Name = "animlistToolStripMenuItem";
+            animlistToolStripMenuItem.Size = new Size(133, 24);
+            animlistToolStripMenuItem.Text = "Animlist";
             // 
             // fNISToolStripMenuItem
             // 
-            this.fNISToolStripMenuItem.Name = "fNISToolStripMenuItem";
-            this.fNISToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.fNISToolStripMenuItem.Text = "FNIS";
-            this.fNISToolStripMenuItem.Click += new System.EventHandler(this.fNISToolStripMenuItem_Click);
+            fNISToolStripMenuItem.Name = "fNISToolStripMenuItem";
+            fNISToolStripMenuItem.Size = new Size(110, 24);
+            fNISToolStripMenuItem.Text = "FNIS";
+            fNISToolStripMenuItem.Click += fNISToolStripMenuItem_Click;
             // 
             // outputToolStripMenuItem
             // 
-            this.outputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pathToolStripMenuItem});
-            this.outputToolStripMenuItem.Name = "outputToolStripMenuItem";
-            this.outputToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
-            this.outputToolStripMenuItem.Text = "Output";
+            outputToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { pathToolStripMenuItem });
+            outputToolStripMenuItem.Name = "outputToolStripMenuItem";
+            outputToolStripMenuItem.Size = new Size(127, 24);
+            outputToolStripMenuItem.Text = "Output";
             // 
             // pathToolStripMenuItem
             // 
-            this.pathToolStripMenuItem.Name = "pathToolStripMenuItem";
-            this.pathToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.pathToolStripMenuItem.Text = "Path";
-            this.pathToolStripMenuItem.Click += new System.EventHandler(this.pathToolStripMenuItem_Click);
+            pathToolStripMenuItem.Name = "pathToolStripMenuItem";
+            pathToolStripMenuItem.Size = new Size(110, 24);
+            pathToolStripMenuItem.Text = "Path";
+            pathToolStripMenuItem.Click += pathToolStripMenuItem_Click;
             // 
             // LaunchButton
             // 
-            this.LaunchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LaunchButton.BackColor = System.Drawing.SystemColors.ScrollBar;
-            //this.LaunchButton.BackgroundImage = global::Animlist_Transition_Tool.Properties.Resources.av_werewolf;
-            this.LaunchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LaunchButton.Location = new System.Drawing.Point(1831, 940);
-            this.LaunchButton.Name = "LaunchButton";
-            this.LaunchButton.Size = new System.Drawing.Size(61, 63);
-            this.LaunchButton.TabIndex = 3;
-            this.LaunchButton.UseVisualStyleBackColor = false;
-            this.LaunchButton.Click += new System.EventHandler(this.LaunchButton_Click);
+            LaunchButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            LaunchButton.BackColor = SystemColors.ScrollBar;
+            LaunchButton.BackgroundImageLayout = ImageLayout.Stretch;
+            LaunchButton.FlatStyle = FlatStyle.Popup;
+            LaunchButton.Location = new Point(1831, 940);
+            LaunchButton.Name = "LaunchButton";
+            LaunchButton.Size = new Size(61, 63);
+            LaunchButton.TabIndex = 3;
+            LaunchButton.UseVisualStyleBackColor = false;
+            LaunchButton.Click += LaunchButton_Click;
             // 
             // ModPrefixInput
             // 
-            this.ModPrefixInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ModPrefixInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ModPrefixInput.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ModPrefixInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.ModPrefixInput.Location = new System.Drawing.Point(1128, 38);
-            this.ModPrefixInput.MaxLength = 6;
-            this.ModPrefixInput.Multiline = false;
-            this.ModPrefixInput.Name = "ModPrefixInput";
-            this.ModPrefixInput.Size = new System.Drawing.Size(86, 22);
-            this.ModPrefixInput.TabIndex = 6;
-            this.ModPrefixInput.Text = "";
-            this.ModPrefixInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateKeyPress);
+            ModPrefixInput.BackColor = Color.FromArgb(30, 30, 30);
+            ModPrefixInput.BorderStyle = BorderStyle.None;
+            ModPrefixInput.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ModPrefixInput.ForeColor = SystemColors.Control;
+            ModPrefixInput.Location = new Point(1128, 38);
+            ModPrefixInput.MaxLength = 6;
+            ModPrefixInput.Multiline = false;
+            ModPrefixInput.Name = "ModPrefixInput";
+            ModPrefixInput.Size = new Size(86, 22);
+            ModPrefixInput.TabIndex = 6;
+            ModPrefixInput.Text = "";
+            ModPrefixInput.KeyPress += ValidateKeyPress;
             // 
             // ModNameInput
             // 
-            this.ModNameInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ModNameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ModNameInput.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ModNameInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.ModNameInput.Location = new System.Drawing.Point(1128, 66);
-            this.ModNameInput.Multiline = false;
-            this.ModNameInput.Name = "ModNameInput";
-            this.ModNameInput.Size = new System.Drawing.Size(251, 22);
-            this.ModNameInput.TabIndex = 8;
-            this.ModNameInput.Text = "";
-            this.ModNameInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateKeyPress);
+            ModNameInput.BackColor = Color.FromArgb(30, 30, 30);
+            ModNameInput.BorderStyle = BorderStyle.None;
+            ModNameInput.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ModNameInput.ForeColor = SystemColors.Control;
+            ModNameInput.Location = new Point(1128, 66);
+            ModNameInput.Multiline = false;
+            ModNameInput.Name = "ModNameInput";
+            ModNameInput.Size = new Size(251, 22);
+            ModNameInput.TabIndex = 8;
+            ModNameInput.Text = "";
+            ModNameInput.KeyPress += ValidateKeyPress;
             // 
             // ModAuthorInput
             // 
-            this.ModAuthorInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ModAuthorInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ModAuthorInput.DetectUrls = false;
-            this.ModAuthorInput.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ModAuthorInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.ModAuthorInput.Location = new System.Drawing.Point(1128, 94);
-            this.ModAuthorInput.Multiline = false;
-            this.ModAuthorInput.Name = "ModAuthorInput";
-            this.ModAuthorInput.Size = new System.Drawing.Size(251, 22);
-            this.ModAuthorInput.TabIndex = 22;
-            this.ModAuthorInput.Text = "";
-            this.ModAuthorInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateKeyPress);
+            ModAuthorInput.BackColor = Color.FromArgb(30, 30, 30);
+            ModAuthorInput.BorderStyle = BorderStyle.None;
+            ModAuthorInput.DetectUrls = false;
+            ModAuthorInput.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ModAuthorInput.ForeColor = SystemColors.Control;
+            ModAuthorInput.Location = new Point(1128, 94);
+            ModAuthorInput.Multiline = false;
+            ModAuthorInput.Name = "ModAuthorInput";
+            ModAuthorInput.Size = new Size(251, 22);
+            ModAuthorInput.TabIndex = 22;
+            ModAuthorInput.Text = "";
+            ModAuthorInput.KeyPress += ValidateKeyPress;
             // 
             // ModLinkInput
             // 
-            this.ModLinkInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ModLinkInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ModLinkInput.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ModLinkInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.ModLinkInput.Location = new System.Drawing.Point(1128, 122);
-            this.ModLinkInput.Multiline = false;
-            this.ModLinkInput.Name = "ModLinkInput";
-            this.ModLinkInput.Size = new System.Drawing.Size(251, 22);
-            this.ModLinkInput.TabIndex = 23;
-            this.ModLinkInput.Text = "";
+            ModLinkInput.BackColor = Color.FromArgb(30, 30, 30);
+            ModLinkInput.BorderStyle = BorderStyle.None;
+            ModLinkInput.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ModLinkInput.ForeColor = SystemColors.Control;
+            ModLinkInput.Location = new Point(1128, 122);
+            ModLinkInput.Multiline = false;
+            ModLinkInput.Name = "ModLinkInput";
+            ModLinkInput.Size = new Size(251, 22);
+            ModLinkInput.TabIndex = 23;
+            ModLinkInput.Text = "";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(1042, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 19);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Mod Prefix";
+            label1.AutoSize = true;
+            label1.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(1042, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 19);
+            label1.TabIndex = 24;
+            label1.Text = "Mod Prefix";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(1042, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 19);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Mod Name";
+            label7.AutoSize = true;
+            label7.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = SystemColors.Control;
+            label7.Location = new Point(1042, 66);
+            label7.Name = "label7";
+            label7.Size = new Size(83, 19);
+            label7.TabIndex = 25;
+            label7.Text = "Mod Name";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.SystemColors.Control;
-            this.label9.Location = new System.Drawing.Point(1036, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 19);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Mod Author";
+            label9.AutoSize = true;
+            label9.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = SystemColors.Control;
+            label9.Location = new Point(1036, 94);
+            label9.Name = "label9";
+            label9.Size = new Size(89, 19);
+            label9.TabIndex = 26;
+            label9.Text = "Mod Author";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(1054, 122);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 19);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Mod Link";
+            label8.AutoSize = true;
+            label8.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = SystemColors.Control;
+            label8.Location = new Point(1054, 122);
+            label8.Name = "label8";
+            label8.Size = new Size(71, 19);
+            label8.TabIndex = 27;
+            label8.Text = "Mod Link";
             // 
             // FileProgressBar
             // 
-            this.FileProgressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.FileProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FileProgressBar.Location = new System.Drawing.Point(0, 1018);
-            this.FileProgressBar.Name = "FileProgressBar";
-            this.FileProgressBar.Size = new System.Drawing.Size(1904, 23);
-            this.FileProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.FileProgressBar.TabIndex = 28;
+            FileProgressBar.BackColor = Color.FromArgb(30, 30, 30);
+            FileProgressBar.Dock = DockStyle.Bottom;
+            FileProgressBar.Location = new Point(0, 1018);
+            FileProgressBar.Name = "FileProgressBar";
+            FileProgressBar.Size = new Size(1904, 23);
+            FileProgressBar.Style = ProgressBarStyle.Continuous;
+            FileProgressBar.TabIndex = 28;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(1030, 165);
+            label2.Name = "label2";
+            label2.Size = new Size(93, 19);
+            label2.TabIndex = 29;
+            label2.Text = "Output Path";
+            // 
+            // OutputPathDisplay
+            // 
+            OutputPathDisplay.BackColor = Color.FromArgb(30, 30, 30);
+            OutputPathDisplay.BorderStyle = BorderStyle.None;
+            OutputPathDisplay.Font = new Font("Corbel", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            OutputPathDisplay.ForeColor = SystemColors.Control;
+            OutputPathDisplay.Location = new Point(1128, 165);
+            OutputPathDisplay.Multiline = false;
+            OutputPathDisplay.Name = "OutputPathDisplay";
+            OutputPathDisplay.ReadOnly = true;
+            OutputPathDisplay.Size = new Size(475, 22);
+            OutputPathDisplay.TabIndex = 30;
+            OutputPathDisplay.Text = "";
             // 
             // AnimlistTransitionTool
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.FileProgressBar);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.ModLinkInput);
-            this.Controls.Add(this.ModAuthorInput);
-            this.Controls.Add(this.ModNameInput);
-            this.Controls.Add(this.ModPrefixInput);
-            this.Controls.Add(this.LaunchButton);
-            this.Controls.Add(this.FileViewBox);
-            this.Controls.Add(this.MenuStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.MenuStrip;
-            this.Name = "AnimlistTransitionTool";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Animlist Transition Tool";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.MenuStrip.ResumeLayout(false);
-            this.MenuStrip.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(38, 38, 38);
+            ClientSize = new Size(1904, 1041);
+            Controls.Add(OutputPathDisplay);
+            Controls.Add(label2);
+            Controls.Add(FileProgressBar);
+            Controls.Add(label8);
+            Controls.Add(label9);
+            Controls.Add(label7);
+            Controls.Add(label1);
+            Controls.Add(ModLinkInput);
+            Controls.Add(ModAuthorInput);
+            Controls.Add(ModNameInput);
+            Controls.Add(ModPrefixInput);
+            Controls.Add(LaunchButton);
+            Controls.Add(FileViewBox);
+            Controls.Add(MenuStrip);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = MenuStrip;
+            Name = "AnimlistTransitionTool";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Animlist Transition Tool";
+            WindowState = FormWindowState.Maximized;
+            MenuStrip.ResumeLayout(false);
+            MenuStrip.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -304,5 +324,7 @@
         private Label label9;
         private Label label8;
         private ProgressBar FileProgressBar;
+        private Label label2;
+        private RichTextBox OutputPathDisplay;
     }
 }
