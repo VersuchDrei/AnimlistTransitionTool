@@ -88,6 +88,33 @@ public partial class AnimlistTransitionTool : Form
     {
         outputPath = Path;
         this.OutputPathDisplay.Text = outputPath;
+
+        string ModDirectory = Path + "Nemesis_Engine\\mod";
+        if (Directory.Exists(ModDirectory)){
+            string[] Dirs = Directory.GetDirectories(ModDirectory);
+            if(Dirs.Length == 1)
+            {
+                string FileDirectory = Dirs[0] + "\\info.ini";
+                if (File.Exists(FileDirectory))
+                {
+                    this.ModPrefixInput.Text = Dirs[0][(Dirs[0].LastIndexOf("\\") + 1)..];
+                    IEnumerable<string> lines = File.ReadLines(FileDirectory);
+                    foreach(string line in lines)
+                    {
+                        if (line.StartsWith("name="))
+                        {
+                            ModNameInput.Text = line[5..];
+                        } else if (line.StartsWith("author="))
+                        {
+                            ModAuthorInput.Text = line[7..];
+                        } else if (line.StartsWith("site="))
+                        {
+                            ModLinkInput.Text = line[5..];
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void PrepOutput()
