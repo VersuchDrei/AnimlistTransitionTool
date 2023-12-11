@@ -552,11 +552,13 @@ public partial class AnimlistTransitionTool : Form
             
             if (String.IsNullOrWhiteSpace(outputPath))
             {
+                LaunchButton.Enabled = true;
                 MessageBox.Show("Set an output path first.");
                 return;
             }
             if (AnimDefList.Count == 0)
             {
+                LaunchButton.Enabled = true;
                 MessageBox.Show("Load an animlist first.");
                 return;
             }
